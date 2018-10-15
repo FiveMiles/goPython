@@ -1,6 +1,4 @@
-bilibili测试账号
-bilitest3333/biliqwer
-
+一、Linux基础
 Linux命令-用户、权限管理
 1、查看当前用户：whoami
 2、退出登录用户：exit
@@ -174,7 +172,7 @@ wq：保存退出
 q！：强制退出；
 
 
-python基础
+二、python基础
 变量命名规则：字母、下划线、数字，不能数字开头；
 驼峰式命名；
 
@@ -265,10 +263,6 @@ a.join('=')
 
 
 
-
-
-bili-test-02
-bilibilibili123
 
 
 
