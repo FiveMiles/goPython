@@ -261,8 +261,36 @@ a = ['a', 'b', 'c']
 a.join('=')
 -->'a=b=c'
 
+列表
+# 定义,可以存储多种类型数据
+names = ["老王", "老李", "老刘"]
+names = [] #定义一个空列表
+作用：存储多个数据；
+num = [11, 22, 3.14, "110", "laowang"]
+# 列表增删改查
+# 添加新元素
+names.append("悟空") # 添加到最后
+names.insert(位置，添加内容)
+names.extend(names3) # 把一个列表添加到一个列表中
+#删除
+names.pop() # 删除最后一个元素
+names.remove("老王") # 根据内容删除，只删除一次，即使有多个相同的；
+del names[0]  #根据下标删除，使用del删除第一个元素
+# 字符串的下标、切片在列表中依旧可用
+names[2]
+names[2:5]
 
-
+#改
+name[下标] = newValue
+# 查
+in / not in
+if "老赵" in names:
+  print("found...")
+  
+  while True: #死循环；除非使用break跳出；
+  
+  
+  
 
 
 
