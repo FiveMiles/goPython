@@ -1,0 +1,281 @@
+bilibili测试账号
+bilitest3333/biliqwer
+
+Linux命令-用户、权限管理
+1、查看当前用户：whoami
+2、退出登录用户：exit
+3、添加用户账号：
+useradd -d /home/etc abc -m
+useradd -d /home/a a -g test -m
+设置用户密码：passwd 用户名
+删除用户：userdel 用户名
+切换用户：su 用户名
+su与su -区别：su - 切换到对应的用户时会将当前的工作目录自动切换到切换后的用户主目录；
+切换到root用户：su root
+切换到普通用户：su 用户名
+查看用户组：cat /etc/group
+4、添加、删除组账号
+groupadd/groupdel 组账号
+
+相对路径：从当前路径开始算起的路径；
+绝对路径：从根目录开始算起的路径；
+.：点表示当前路径；
+..：当前路径的上一层路径；
+cd ../..：跳转到上层路径的上层路径；
+cd -：返回上次在的那个目录；
+cd ~：返回家目录（回城）；
+ctrl+c：相当于终止该命令，换行；
+mkdir a/b/c/d -p ：循环创建目录（-p）；
+rmdir c ：删除文件夹；
+rm b -r ：删除文件或文件夹（-r删除递归）
+mv old.txt new.txt ：重命名文件（夹）；
+（凡是牵扯到文件夹不让动的，都加上-r来解决）
+find：按照文件名来搜索；
+find / -name "*name" 
+find /tem -size 2M
+find --help #查看帮助
+
+打包--并没有压缩
+tar -cvf test.tar(包名) *.py
+解包
+tar -xvf test.tar
+
+压缩 -- 重要
+tar -zcvf xxx.tar.gz *.py
+解压
+tar -zxvf xxx.tar.gz
+
+压缩2
+tar -jcvf yyy.tar.bz2 *py
+解压2
+tar -jxvf yyy.tar.bz2
+
+解压到指定路径
+tar -zxvf xxx.tar.gz *.py -C c:/
+
+zip tt.zip *.py
+unzip tt.zip
+
+ll -->ls -la
+
+which：查看命令在那个目录下；
+
+date "+%y%m%d"
+date "+%Y年%m月%d日"
+
+ps：process查看进程信息
+ps -aux 当前所有进程信息；
+
+top：查看运行情况
+htop：
+
+kill pid：杀掉进程
+kill -9 pid ： 强制杀掉进程
+
+shutdown -h now ：立即关机
+shutdown -h 20:20 ：关机
+
+df -f：查看硬盘使用情况；
+du -h ：当前文件大小；
+
+ifconfig：查看当前网络连接信息，查看ip信息；
+
+ssh usernam@172.168.7.193：远程登录
+
+文件权限
+rwx：可读写执行
+r--：只读
+r-x：可读，可执行；
+
+drwxr-xr-x 3 python python 4096 3月 30 14:43 ./
+-rw-rw-r-- 1 xxx    yyy    4096 3月 30 15:58 ../
+-rw-rw-r-- 1 python python 0    3月 30 14:37 1.py
+第一列代表文件与文件夹；
+第二列：rwx：用户自己可读写、可执行权限；
+第三列：r-x：用户组文件权限；
+第四列：r--：其他用户权限；
+
+修改权限
+u：文件拥有者  g：同组   o：其他
+字母法：
+chmod u=rwx 1.py :修改文件拥有者
+chmod u=x 1.py
+
+chmod g=rwx 1.py
+chmod o=rwx 1.py
+三者都改
+chmod u=r,g=r,o=r 1.py
+chmod u=,g=,o= 1.py  # 未设置权限
+
+数字法：
+r-->4
+w-->2
+x-->1
+去组合
+chmod 137 1.py # 文件拥有者1，只读；同组：3，wx，其他：7，rwx；
+
+vi
+命令模式
+i:在光标前面插入
+a：在光标后面插入
+o：在下一行插入
+I：在行首插入
+A：行末插入
+O：在上一行插入（大写O）
+
+yy：复制光标所在行；
+p：粘贴
+
+dd：删除/剪切光标所在行
+4yy：复制，光标所在行开始向下的4行；
+2dd：删除/剪切，光标所在行 向下 2行；（包含该行）
+D：从当前的光标开始剪切，一直到行末；
+d0：从当前光标开始剪切，一直到行首；
+x：删除当前的光标，每次只删除一个；
+X：删除当前光标前面的，每次只删除一个；
+
+
+光标上下左右
+h左 l右 j下 k上；
+
+M：当前屏幕中间行
+L：当前屏幕最后行
+H：当前屏幕第一行
+
+ctrl+f向下翻一页代码
+ctrl+b向上翻一页代码
+
+20G：快速定位到第20行代码；
+G：快速回到整个代码最后一行
+gg：快速回到整个代码的首行（1G也可以）
+
+
+w：向后跳一个单词的长度，即跳到下一个单词的开始处；
+b：向前跳一个单词的长度，即跳到上一个单词的开始处；
+
+u：撤销刚刚的操作；
+ctrl+r：反撤销；
+
+选中一片代码
+v：选中到光标；
+V：选中光标所在行；
+>>:向右移动代码
+<<:向左移动代码
+.:重复执行上一次命令
+
+r：替换一个字符；
+R：替换光标以及后面的字符；
+
+
+末行模式
+w:保存
+q：退出
+wq：保存退出
+q！：强制退出；
+
+
+python基础
+变量命名规则：字母、下划线、数字，不能数字开头；
+驼峰式命名；
+
+input:用户输入的内容，默认都是字符串！
+if 条件：
+    #..
+else:
+    #...
+
+if 条件1：
+    #...
+elif 条件2:
+    #...
+else
+    #...
+
+程序三大执行顺序：顺序执行、选择执行、循环执行；
+
+
+import random
+
+random.randint(0, 10)  # 随机输出0-10之间的数字
+
+
+1、字符串
+
+1G = 1024M，1M = 1024k，1k = 1024Byte
+1个字节的最大值255；
+数字可以一个字节存储，字符串是每个字符占用一个字节；
+
+字符串类型转换：str(num)
+len(name):长度，占用几个字节；
+
+组成字符串两种方式：
+a="lao"
+b="wang"
+c = "==="+ a + b + "==="
+d = "===%s==="%(a+b)
+
+
+字符串操作
+rjust
+返回一个原字符串右对齐，并使用空格填充至长度width的新字符串；
+myStr.rjust(width)
+ljust
+返回一个原字符串左对齐，并使用空格填充至长度width的新字符串；
+myStr.ljust(width)
+center
+返回一个原字符串居中，并使用空格填充至长度width的新字符串；
+myStr.center(width)
+
+strip
+删除字符串两端的空白字符；
+lstrip
+删除字符串开头的空白字符；
+rstrip
+删除字符串末尾的空白字符；
+
+partition
+myStr.partition(str) ---》返回元组
+把myStr以str分割成3部分，str前，str和str后；
+myStr = "hello world itcast and itcastxxp"
+myStr.partition('itcast')
+-->('hello world', 'itcast', ' and itcastxxp')
+rpartition
+类似于partition，不过是从右边开始；
+lpartition
+从左边开始；
+
+myStr.splitlines()
+按照换行符分割，返回一个包含各行作为元素的列表；
+test = "hello\nworld"
+test.splitlines()
+--->['hello', 'world']
+
+isalpha
+判定是否为字母；True/False
+isdigit
+判定是否为数字；
+isalnum()
+是否是数字字母组合
+isspace
+
+join
+a = ['a', 'b', 'c']
+a.join('=')
+-->'a=b=c'
+
+
+
+
+
+bili-test-02
+bilibilibili123
+
+
+
+
+
+
+
+
+
+
